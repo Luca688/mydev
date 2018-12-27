@@ -1,0 +1,43 @@
+version: "3"
+
+#volumes:
+#  ./php/conf/php/:
+#  ./php/conf/nginx/:
+#  /data/www/:
+
+services:
+
+  php:
+    build: ./php
+    container_name: php
+    image: php
+    tty: true
+#    volumes:
+#      - ./conf:/usr/local/etc/php
+#      - ../nginx/conf:/usr/local/nginx/conf
+#      - /data/www:/www
+#      - /data:/data
+#    ports:
+#      - "8080:8080"
+#    depends_on:
+#      - redis
+#    links:
+#      - redis
+
+#  redis:
+#    image: redis
+#    container_name: redis
+#    ports:
+#      - "6379:6379"
+#    expose:
+#      - "6379"
+#
+#  nginx:
+#    image: nginx
+#    container_name: nginx
+#    ports:
+#      - "80:80"
+#      - "443:443"
+#      - "8080:8080"
+
+
