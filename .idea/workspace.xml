@@ -2,74 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9935d2ae-5747-4b26-9f46-e35916f5ac05" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nginx/conf/fastcgi.conf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nginx/conf/fastcgi_params" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nginx/conf/koi-utf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nginx/conf/koi-win" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nginx/conf/mime.types" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nginx/conf/modules-enabled/50-mod-http-auth-pam.conf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nginx/conf/modules-enabled/50-mod-http-dav-ext.conf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nginx/conf/modules-enabled/50-mod-http-echo.conf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nginx/conf/modules-enabled/50-mod-http-geoip.conf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nginx/conf/modules-enabled/50-mod-http-image-filter.conf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nginx/conf/modules-enabled/50-mod-http-subs-filter.conf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nginx/conf/modules-enabled/50-mod-http-upstream-fair.conf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nginx/conf/modules-enabled/50-mod-http-xslt-filter.conf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nginx/conf/modules-enabled/50-mod-mail.conf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nginx/conf/modules-enabled/50-mod-stream.conf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nginx/conf/nginx.conf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nginx/conf/proxy_params" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nginx/conf/scgi_params" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nginx/conf/sites-available/api-znxg.hczq.com" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nginx/conf/sites-available/api.jingtaomall.cn" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nginx/conf/sites-available/api.lanniu.mobi" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nginx/conf/sites-available/api.rongcat.com" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nginx/conf/sites-available/api.tougudashi.com" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nginx/conf/sites-enabled/api-znxg.hczq.com" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nginx/conf/sites-enabled/api.jingtaomall.cn" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nginx/conf/sites-enabled/api.lanniu.mobi" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nginx/conf/sites-enabled/api.rongcat.com" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nginx/conf/sites-enabled/api.tougudashi.com" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nginx/conf/snippets/fastcgi-php.conf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nginx/conf/snippets/snakeoil.conf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nginx/conf/ssl/api-znxg.hczq.com.cnf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nginx/conf/ssl/api-znxg.hczq.com.crt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nginx/conf/ssl/api-znxg.hczq.com.key" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nginx/conf/ssl/api.jingtaomall.cn.cnf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nginx/conf/ssl/api.jingtaomall.cn.crt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nginx/conf/ssl/api.jingtaomall.cn.key" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nginx/conf/ssl/api.lanniu.mobi.cnf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nginx/conf/ssl/api.lanniu.mobi.crt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nginx/conf/ssl/api.lanniu.mobi.key" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nginx/conf/ssl/api.rongcat.cn.cnf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nginx/conf/ssl/api.rongcat.cn.crt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nginx/conf/ssl/api.rongcat.cn.key" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nginx/conf/ssl/api.rongcat.com.cnf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nginx/conf/ssl/api.rongcat.com.crt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nginx/conf/ssl/api.rongcat.com.key" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nginx/conf/ssl/api.tougudashi.cn.cnf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nginx/conf/ssl/api.tougudashi.cn.crt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nginx/conf/ssl/api.tougudashi.cn.key" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nginx/conf/ssl/api.tougudashi.com.cnf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nginx/conf/ssl/api.tougudashi.com.crt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nginx/conf/ssl/api.tougudashi.com.key" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nginx/conf/uwsgi_params" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nginx/conf/win-utf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nginx/nginx-1.15.2.tar.gz" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/php/conf/conf.d/ext-opcache.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/php/conf/conf.d/ext-redis.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/php/conf/conf.d/ext-swoole.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/php/conf/pear.conf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/php/conf/pear.conf.default" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/php/conf/php-fpm.conf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/php/conf/php-fpm.conf.default" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/php/conf/php-fpm.d/www.conf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/php/conf/php-fpm.d/www.conf.default" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/php/conf/php.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/php/conf/php.ini.default" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docker-compose.yml" afterPath="$PROJECT_DIR$/docker-compose.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php/Dockerfile" afterPath="$PROJECT_DIR$/php/Dockerfile" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -81,21 +15,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="docker-compose.yml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="docker-compose.yml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/docker-compose.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="redis.conf" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/redis/conf/redis.conf">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
+            <state relative-caret-position="274">
+              <caret line="42" column="13" lean-forward="true" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -131,8 +55,9 @@
         <option value="$PROJECT_DIR$/nginx/Dockerfile" />
         <option value="$PROJECT_DIR$/php/Dockerfile" />
         <option value="$PROJECT_DIR$/redis/Dockerfile" />
-        <option value="$PROJECT_DIR$/docker-compose.yml" />
         <option value="$PROJECT_DIR$/redis/conf/redis.conf" />
+        <option value="$PROJECT_DIR$/nginx/conf/conf.d/api.rongcat.conf" />
+        <option value="$PROJECT_DIR$/docker-compose.yml" />
       </list>
     </option>
   </component>
@@ -204,11 +129,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="redis" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="conf" />
+              <option name="myItemId" value="nginx" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -331,7 +252,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55345000" />
+    <option name="totallyTimeSpent" value="59409000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="773" extended-state="6" />
@@ -601,18 +522,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docker-compose.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/redis/conf/redis.conf">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nginx/conf/nginx.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-46">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nginx/conf/conf.d/default.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-155">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nginx/conf/conf.d/api.rongcat.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="454">
+          <caret line="26" column="29" lean-forward="false" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker-compose.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="42" column="13" lean-forward="true" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
           <folding />
         </state>
       </provider>

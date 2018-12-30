@@ -1,5 +1,8 @@
 version: "3"
 
+networks:
+  web:
+
 #volumes:
 #  ./php/conf/php/:
 #  ./php/conf/nginx/:
@@ -20,6 +23,12 @@ services:
       - /data:/data
     ports:
       - "9000:9000"
+#    depends_on:
+#      - redis
+#    links:
+#      - redis
+    networks:
+      - web
 
   redis:
     build: ./redis
@@ -30,7 +39,9 @@ services:
       - "6379:6379"
     volumes:
       - /data/www/mydev/redis/conf/redis.conf:/usr/local/etc/redis/redis.conf
-    command: redis-server /usr/local/etc/redis/redis.conf
+#    command: [redis-server, /usr/local/etc/redis/redis.conf]
+    networks:
+      - web
 
   nginx:
     build: ./nginx
@@ -49,5 +60,10 @@ services:
       - /data/www/mydev/nginx/conf/nginx.conf:/etc/nginx/nginx.conf
       - /data/www/mydev/nginx/conf/conf.d:/etc/nginx/conf.d
       - /data/logs/nginx/docker-error.log:/var/log/nginx/error.log
+    networks:
+      - web
+#    command:
+#      - echo "127.0.0.1 api.rongcat.com" >> /etc/hosts
+
 
 
