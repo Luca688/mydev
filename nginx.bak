@@ -1,0 +1,45 @@
+ENV NGINX_VERSION 1.15.2
+ENV NGINX_DEPS  autoconf \
+                    gcc \
+                    vim \
+                    git \
+                    libc-dev \
+                    make \
+                    openssl-dev \
+                    pcre-dev \
+                    zlib-dev \
+                    linux-headers \
+                    curl \
+                    gnupg \
+                    libxslt-dev \
+                    gd-dev \
+                    geoip-dev \
+                    perl-dev
+ENV NGINX_BUILD_ARGS ./configure --prefix=/usr/local/nginx \
+#                           --sbin-path=/usr/local/nginx/sbin \
+#                           --conf-path=/usr/local/nginx/conf \
+                           --user=www --group=www \
+                           --error-log-path=/var/log/nginx_error.log \
+                           --http-log-path=/var/log/nginx_access.log \
+                           --pid-path=/var/run/nginx.pid \
+                           --with-pcre \
+                           --with-http_ssl_module \
+                           --without-mail_pop3_module \
+                           --without-mail_imap_module \
+                           --with-http_gzip_static_module
+COPY ./nginx-$NGINX_VERSION.tar.gz ./nginx-$NGINX_VERSION.tar.gz
+RUN addgroup -S www && \
+    adduser -D -S -h /var/cache/www -s /sbin/nologin -G www www && \
+    mkdir -p /usr/src && \
+    tar -zxC /usr/src -f nginx-${NGINX_VERSION}.tar.gz && \
+    rm -rf nginx-${NGINX_VERSION}.tar.gz
+#NGINX
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories && \
+    apk update && \
+    apk add --no-cache --virtual .build-deps \
+    ${NGINX_DEPS} && \
+    cd /usr/src/nginx-${NGINX_VERSION} && \
+    ${NGINX_BUILD_ARGS} && \
+    make && make install && \
+    rm -rf /usr/src/nginx-${NGINX_VERSION} && \
+    /usr/local/nginx/sbin/nginx -c /usr/local/nginx/conf/nginx.conf
