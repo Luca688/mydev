@@ -21,7 +21,12 @@ ENV PHP_LIB openssh-client \
                 libffi-dev \
                 freetype-dev \
                 sqlite-dev \
-                libjpeg-turbo-dev
+                libjpeg-turbo-dev \
+                #swoole
+                build-base \
+                libaio-dev \
+                zlib-dev
+
 
 
 #PHP
@@ -34,7 +39,6 @@ RUN ln -snf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo Asia/Shangh
     apk add --no-cache bash \
     ${PHP_LIB}
 
-
 RUN docker-php-ext-configure gd \
       --with-gd \
       --with-freetype-dir=/usr/include/ \
@@ -44,11 +48,12 @@ RUN docker-php-ext-configure gd \
     docker-php-ext-install pdo_mysql mysqli gd exif fileinfo intl json opcache && \
     pecl install mcrypt-1.0.1 && \
     pecl install redis && \
-#    pecl install swoole && \
+    pecl install swoole && \
     docker-php-ext-enable mcrypt.so && \
     docker-php-ext-enable redis.so && \
-#    docker-php-ext-enable swoole.so && \
-    docker-php-source delete
+    docker-php-ext-enable swoole.so && \
+    docker-php-source delete && \
+    rm -rf /var/cache/apk && mkdir /var/cache/apk/ && rm -rf /tmp/*
 
 #COPY ./composer-setup.php ./composer-setup.php
 #RUN chmod +x composer-setup.php
