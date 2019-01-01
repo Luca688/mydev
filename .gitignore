@@ -10,7 +10,7 @@
 /storage/debugbar/*
 /storage/logs/*
 /vendor
-/.idea
+.idea
 /.vagrant
 /resources/views/vendor/l5-swagger/*
 Homestead.json
