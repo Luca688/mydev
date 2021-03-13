@@ -1,71 +1,101 @@
-version: "3"
-
-#networks:
-#  web:
-
-#volumes:
-#  ./php/conf/php/:
-#  ./php/conf/nginx/:
-#  /data/www/:
+version: '3'
 
 services:
-
-  php:
-    build: ./php
-    container_name: php
-    image: php
-    tty: true
+  php-fpm:
+    build:
+      context: ./php-fpm
     volumes:
-      - /data/www/mydev/php/etc/php/php.ini-development:/usr/local/etc/php/php.ini-development
-      - /data/www/mydev/php/etc/php/php.ini-production:/usr/local/etc/php/php.ini-production
-      - /data/www/mydev/php/etc/php-fpm.conf:/usr/local/etc/php-fpm.conf
-      - /data/www/mydev/php/etc/php-fpm.d/www.conf:/usr/local/etc/php-fpm.d/www.conf
-      - /data:/data
-    ports:
-      - "9000:9000"
-#    depends_on:
-#      - redis
-#    links:
-#      - redis
-#    networks:
-#      - web
-
-  redis:
-    build: ./redis
-    image: redis
+      - ./php-fpm/php7.4.ini:/usr/local/etc/php/php.ini
+      - /data/:/data/
+    environment:
+      - TZ=Asia/Shanghai
+    restart: always
+    stdin_open: true
     tty: true
-    container_name: redis
+    container_name: php-fpm
     ports:
-      - "6379:6379"
+      - 9000:9000
+    # networks:
+    #  dev:
+    #    ipv4_address: 172.16.238.22
+
+  mysql:
+    restart: always
+    image: mysql
+    build: ./mysql
+    container_name: mysql
+    privileged: true
     volumes:
-      - /data/www/mydev/redis/conf/redis.conf:/usr/local/etc/redis/redis.conf
-#    command:
-#      - redis-server /usr/local/etc/redis/redis.conf
-#    networks:
-#      - web
+      - /data/db/mysql:/var/lib/mysql
+      - ./mysql/conf/my.cnf:/etc/mysql/my.cnf
+      #      数据库还原目录 可将需要还原的sql文件放在这里
+      - /data/db/mysql-source:/docker-entrypoint-initdb.d
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: root
+      MYSQL_PASS: root
+      MYSQL_DATABASE: mydb
+      TZ: Asia/Shanghai
+    command:
+      --wait_timeout=31536000
+      --interactive_timeout=31536000
+      --max_connections=1000
+      --default-authentication-plugin=mysql_native_password
+    ports:
+      - 3306:3306
 
   nginx:
-    build: ./nginx
+    hostname: nginx
     image: nginx
-    tty: true
-    container_name: nginx
+    build:
+      ./nginx
     ports:
-      - "80:80"
-      - "443:443"
-      - "8080:8080"
-    depends_on:
-      - php
-    links:
-      - php
+      - 80:80
+      - 443:443
+      - 8080:8080
     volumes:
-      - /data/www/mydev/nginx/conf/nginx.conf:/etc/nginx/nginx.conf
-      - /data/www/mydev/nginx/conf/conf.d:/etc/nginx/conf.d
-      - /data/logs/nginx/docker-error.log:/var/log/nginx/error.log
-      - /data:/data
-#    networks:
-#      - web
-#    command:
-#      - echo "127.0.0.1 api.rongcat.com" >> /etc/hosts
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/conf.d/:/etc/nginx/conf.d/:rw
+      - ./nginx/ssl/:/etc/nginx/ssl/:ro
+      - /data/log/:/data/log:rw
+      - /data/www/:/usr/local/nginx/html/
+    restart: always
+    container_name: nginx
+    depends_on:
+      - php-fpm
+    environment:
+      - TZ=Asia/Shanghai
+    # networks:
+    #  default:
+    #    ipv4_address: 172.88.88.2
+
+  redis:
+    hostname: redis
+    image: redis
+    build:
+      ./redis
+    # volumes:
+    #   - /data/db/redis/:/data/db/redis/:rw
+    volumes:
+      - ./redis/redis.conf:/etc/redis/redis.conf:rw
+      - /data/db/redis/:/data/db/redis/:rw
+    command:
+      redis-server /etc/redis/redis.conf --appendonly yes
+    restart: always
+    container_name: redis
+    environment:
+      - TZ=Asia/Shanghai
+    ports:
+      - 6379:6379
+    # networks:
+    #  default:
+    #    ipv4_address: 172.88.88.3
 
 
-
+# networks:
+#   dev:
+#     ipam:
+#       driver: default
+#       config:
+#         - subnet: "172.16.238.0/24"
+#           # gateway: 172.16.238.1
