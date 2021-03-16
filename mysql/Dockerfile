@@ -1,1 +1,1 @@
-FROM mysql:5.7.16
+FROM daocloud.io/library/mysql:5.7.6

@@ -1,7 +1,20 @@
 version: '3'
 
+# networks:
+#   dev:
+#     ipam:
+#       driver: default
+#       config:
+#         - subnet: 172.28.0.0/16
+
+# networks:
+#       dev:
+#         ipv4_address: 172.28.0.12
+
+
 services:
-  php:
+  php_dev:
+    hostname: php_dev
     build:
       context: ./php
     volumes:
@@ -12,18 +25,17 @@ services:
     restart: always
     stdin_open: true
     tty: true
-    container_name: php
+    container_name: php_dev
+    image: php_dev
     ports:
       - 9000:9000
-    # networks:
-    #  dev:
-    #    ipv4_address: 172.16.238.22
 
-  mysql:
+  mysql_dev:
+    hostname: mysql_dev
     restart: always
-    image: mysql
+    image: mysql_dev
     build: ./mysql
-    container_name: mysql
+    container_name: mysql_dev
     privileged: true
     volumes:
       - /data/db/mysql:/var/lib/mysql
@@ -44,9 +56,9 @@ services:
     ports:
       - 3306:3306
 
-  nginx:
-    hostname: nginx
-    image: nginx
+  nginx_dev:
+    hostname: nginx_dev
+    image: nginx_dev
     build:
       ./nginx
     ports:
@@ -60,45 +72,37 @@ services:
       - /data/log/:/data/log:rw
       - /data/www/:/usr/local/nginx/html/
     restart: always
-    container_name: nginx
+    container_name: nginx_dev
     depends_on:
-      - php
+      - php_dev
     environment:
       - TZ=Asia/Shanghai
-    # networks:
-    #  default:
-    #    ipv4_address: 172.88.88.2
 
-  redis:
-    hostname: redis
-    image: redis
+  redis_dev:
+    hostname: redis_dev
+    image: redis_dev
     build:
       ./redis
-    # volumes:
-    #   - /data/db/redis/:/data/db/redis/:rw
     volumes:
       - ./redis/redis.conf:/etc/redis/redis.conf:rw
       - /data/db/redis/:/data/db/redis/:rw
     command:
       redis-server /etc/redis/redis.conf --appendonly yes
     restart: always
-    container_name: redis
+    container_name: redis_dev
     environment:
       - TZ=Asia/Shanghai
     ports:
       - 6379:6379
-    # networks:
-    #  default:
-    #    ipv4_address: 172.88.88.3
 
-  rabbitmq:
-    hostname: rabbitmq
+  rabbitmq_dev:
+    hostname: rabbitmq_dev
     environment:
       RABBITMQ_DEFAULT_VHOST: "rabbitmq"
       RABBITMQ_DEFAULT_USER: "root"
       RABBITMQ_DEFAULT_PASS: "root"
     image: daocloud.io/library/rabbitmq:3.6.9-management
-    container_name: rabbitmq
+    container_name: rabbitmq_dev
     restart: always
     volumes:
       - /data/rabbitmq:/var/lib/rabbitmq:rw
@@ -109,11 +113,3 @@ services:
       - "5672:5672" # client端通信口
       - "25672:25672" # server间内部通信口
 
-
-# networks:
-#   dev:
-#     ipam:
-#       driver: default
-#       config:
-#         - subnet: "172.16.238.0/24"
-#           # gateway: 172.16.238.1
