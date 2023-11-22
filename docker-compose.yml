@@ -1,13 +1,19 @@
 services:
-    php:
-      container_name: php
-      volumes:
-        - ./php/php7.4.ini:/usr/local/etc/php/php.ini
-        - ~/work/www:/var/www/html
-      expose:
-        - "9000"
-      build:
-        context: ./php
+    # php:
+    #   container_name: php
+    #   volumes:
+    #     - ./php/php7.4.ini:/usr/local/etc/php/php.ini
+    #     - ~/work/www:/var/www/html
+    #     - /tmp:/tmp
+    #   expose:
+    #     - "9000"
+    #   build:
+    #     context: ./php
+    #   ports:
+    #     - 701:701
+    #     - 702:702
+    #     - 703:703
+    #     - 704:704
 
     nginx:
       build:
